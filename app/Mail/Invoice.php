@@ -29,6 +29,7 @@ class Invoice extends Mailable
      */
     public function build()
     {
+        
         return $this->view('invoice.invoice',[
             'order_id' => $this->data,
         ]);

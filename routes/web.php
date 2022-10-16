@@ -162,3 +162,5 @@ Route::get('/github/callback', [SocialsiteController::class, 'github_callback'])
 Route::get('/google/redirect', [SocialsiteController::class, 'google_redirect'])->name('google.redirect');
 Route::get('/google/callback', [SocialsiteController::class, 'google_callback'])->name('google.callback');
 
+//shop_open
+Route::get('/shop', [FrontendControlller::class, 'shop'])->name('shop');

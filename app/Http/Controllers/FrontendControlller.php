@@ -58,4 +58,56 @@ class FrontendControlller extends Controller
         }
         echo $str;
     }
+
+    function shop(Request $request)
+    {
+        $data = $request->all();
+        $products = Product::where( function($q) use ($data){
+            if(!empty($data['q']) && $data['q'] != '' && $data['q'] != 'undefined'){
+                $q->where(function($q) use ($data){
+                    $q->where('product_name', 'like','%'.$data['q'].'%');
+                    $q->orWhere('short_desp', 'like','%'.$data['q'].'%');
+                    $q->orWhere('long_desp', 'like','%'.$data['q'].'%');
+                });
+            }
+            if(!empty($data['category_id']) && $data['category_id'] != '' && $data['category_id'] != 'undefined'){
+                $q->where(function($q) use ($data){
+                    $q->where('category_id', $data['category_id']);
+                });
+            }
+            if(!empty($data['amount']) && $data['amount'] != '' && $data['amount'] != 'amount'){
+                $q->where(function($q) use ($data){
+                    $after_explode = explode('-', $data['amount']);
+                    
+                    $q->whereBetween('after_discount', [$after_explode[0],$after_explode[1]]);
+                });
+            }
+            if(!empty($data['color_id']) && $data['color_id'] != '' && $data['color_id'] != 'undefined' || !empty($data['size_id']) && $data['size_id'] != '' && $data['size_id'] != 'undefined'){
+                $q->whereHas('rel_to_inventory', function ($q) use ($data){
+                    if(!empty($data['color_id']) && $data['color_id'] != '' && $data['color_id'] != 'undefined'){
+                        $q->whereHas('rel_to_color', function($q) use ($data){
+                            $q->where('color_id', $data['color_id']);
+                        });
+                    }
+                    if(!empty($data['size_id']) && $data['size_id'] != '' && $data['size_id'] != 'undefined'){
+                        $q->whereHas('rel_to_size', function($q) use ($data){
+                            $q->where('size_id', $data['size_id']);
+                        });
+                    }
+                });
+                
+            }
+        })->get();
+        
+        
+        $categories = Category::all();
+        $colors = Color::all();
+        $sizes = Size::all();
+        return view('frontend.shop',[
+            'products' => $products,
+            'categories' => $categories,
+            'colors' => $colors,
+            'sizes' => $sizes,
+        ]);
+    }
 }

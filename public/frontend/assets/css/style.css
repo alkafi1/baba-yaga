@@ -359,7 +359,9 @@ hr {
   padding-top: 80px;
   padding-bottom: 80px;
 }
+/* peice range scss sstart */
 
+/* peice range scss end */
 /* section top & bottom space - end */
 /* 2.3 - Default Space - end
 ================================================== */
@@ -9630,3 +9632,55 @@ hr {
 }
 /* media screen and (max-width: 425px) - end
 ================================================== */
+
+body {
+  background: #ecf9fa;
+}
+
+.price-range-slider {
+  width: 100%;
+  float: left;
+  padding: 10px 20px;
+}
+
+.price-range-slider .range-value {
+  margin: 0;
+}
+
+.price-range-slider .range-value input {
+  width: 100%;
+  background: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: initial;
+  box-shadow: none;
+  border: none;
+  margin: 20px 0 20px 0;
+}
+
+.price-range-slider .range-bar {
+  border: none;
+  background: #000;
+  height: 3px;
+  width: 96%;
+  margin-left: 8px;
+}
+
+.price-range-slider .range-bar .ui-slider-range {
+  background: #06b9c0;
+}
+
+.price-range-slider .range-bar .ui-slider-handle {
+  border: none;
+  border-radius: 25px;
+  background: #fff;
+  border: 2px solid #06b9c0;
+  height: 17px;
+  width: 17px;
+  top: -0.52em;
+  cursor: pointer;
+}
+
+.price-range-slider .range-bar .ui-slider-handle+span {
+  background: #06b9c0;
+}

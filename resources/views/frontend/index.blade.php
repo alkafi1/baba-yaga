@@ -179,7 +179,7 @@
                                                 @endif
                                             </span>
                                             <div class="add-cart-area">
-                                                <button class="add-to-cart">Add to cart</button>
+                                                <a href="{{ route('product_details',$product->slug) }}"><button class="add-to-cart">Add to cart</button></a>
                                             </div>
                                         </div>
                                     </div>

@@ -101,7 +101,6 @@
                             </div>
                         </div>
                         <div class="col col-lg-6 col-md-6 col-sm-12">
-                            <form action="#">
                                 <div class="advance_serach">
                                     <div class="select_option mb-0 clearfix">
                                         <select class="menuselect">
@@ -114,11 +113,10 @@
                                         </select>
                                     </div>
                                     <div class="form_item">
-                                        <input type="search" name="search" placeholder="Search Prudcts...">
-                                        <button type="submit" class="search_btn"><i class="far fa-search"></i></button>
+                                        <input type="search" id="search_input" name="search" placeholder="Search Prudcts...">
+                                        <button type="submit" id="search_btn" class="search_btn"><i class="far fa-search"></i></button>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                         <div class="col col-lg-3 col-md-3 col-sm-12">
                             <button class="mobile_menu_btn2 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown" aria-controls="main_menu_dropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -175,7 +173,7 @@
                                     <ul class="main_menu_list ul_li">
                                         <li><a class="nav-link" href="{{ route('index') }}">Home</a></li>
                                         <li><a class="nav-link" href="#">About us</a></li>
-                                        <li><a class="nav-link" href="#">Shop</a></li>
+                                        <li><a class="nav-link" href="{{ route('shop') }}">Shop</a></li>
                                         <li><a class="nav-link" href="#">Contact Us</a></li>
                                     </ul>
                                 </div>
@@ -501,14 +499,15 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk2HrmqE4sWSei0XdKGbOMOHN3Mm2Bf-M&ver=2.1.6"></script>
     <script src="{{ asset('frontend/assets/js/gmaps.min.js ') }}"></script>
 
-    <!-- custom - main-js -->
-    <script src="{{ asset('frontend/assets/js/main.js')}}"></script>
+    
     {{--  sweet Alert  --}}
     <script src="{{ asset('/backend/vendor/sweetalert2/dist/sweetalert2.min.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('frontend/assets/js/select2.full.min.js ') }}"></script>
 
     @yield('footer_script')
+    <!-- custom - main-js -->
+    <script src="{{ asset('frontend/assets/js/main.js')}}"></script>
 
 </body>
 </html>
