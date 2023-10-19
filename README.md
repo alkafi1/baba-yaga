@@ -22,7 +22,11 @@ This Stowa ecommerce Provide us
 - User login with google github
 
 
-
+## Install Project 
+  - clone this project
+  - composer update
+  - php artisan migrate or sql file import database then php artisan key:ganeret
+  - php artisan serve
 
 ## Contributing
 
